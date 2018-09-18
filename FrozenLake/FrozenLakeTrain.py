@@ -39,6 +39,7 @@ agent = QAgent(state_size, action_size)
 
 
 Episodes = 2000
+loss = 0
 
 for episode in range(Episodes):
 
@@ -61,11 +62,12 @@ for episode in range(Episodes):
         if done:
             break
 
-    agent.update()
+    loss += agent.update()[0]
 
-    if episode % 100 == 0:
+    if episode % 100 == 0 and episode != 0:
         score = run_tests(100, agent, env)
-        print("ETest score = " + str(score))
+        print("Episode: " + str(episode) + "-> Test score = " + str(score) + ", Loss : " + str(loss/100))
+        loss = 0
 
 
 score = run_tests(1000, agent, env)
