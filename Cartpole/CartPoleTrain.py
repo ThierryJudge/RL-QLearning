@@ -11,7 +11,7 @@ from Cartpole.CartpoleAgent import CartpoleAgent
 env = gym.make('CartPole-v0')
 
 action_size = env.action_space.n
-state_size = 4
+state_size = env.observation_space.n
 
 
 agent = CartpoleAgent(state_size, action_size)
