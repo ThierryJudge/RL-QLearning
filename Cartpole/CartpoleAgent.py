@@ -29,9 +29,11 @@ class CartpoleAgent(QAgent):
         print(self.name)
 
     def build_model(self):
-        self.model = Sequential()
-        self.model.add(Dense(24, input_dim=self.state_size, activation='relu'))
-        self.model.add(Dense(48, activation='relu'))
-        self.model.add(Dense(self.action_size, activation='linear'))
+        model = Sequential()
+        model.add(Dense(24, input_dim=self.state_size, activation='relu'))
+        model.add(Dense(48, activation='relu'))
+        model.add(Dense(self.action_size, activation='linear'))
 
-        self.model.compile(loss='mse', optimizer=Adam(lr=self.learning_rate))
+        model.compile(loss='mse', optimizer=Adam(lr=self.learning_rate))
+
+        return model

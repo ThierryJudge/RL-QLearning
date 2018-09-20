@@ -30,14 +30,18 @@ class QAgent(AbstractAgent):
 
         self.memory = deque(maxlen=self.memory_length)
 
-        self.build_model()
+        self.model = self.build_model()
 
     def build_model(self):
-        self.model = Sequential()
-        self.model.add(Dense(self.action_size, input_dim=self.state_size, activation='relu'))
-        self.model.compile(loss='mse', optimizer=Adam(lr=self.learning_rate))
+        model = Sequential()
+        model.add(Dense(self.action_size, input_dim=self.state_size, activation='relu'))
+        model.compile(loss='mse', optimizer=Adam(lr=self.learning_rate))
+
+        return model
 
     def act(self, state, is_training = True):
+        # if not is_training:
+        #     print(self.model.predict(state))
         action = np.argmax(self.model.predict(state))
         random_action = random.randrange(self.action_size)
 

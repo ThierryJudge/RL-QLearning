@@ -6,7 +6,7 @@ from keras.optimizers import Adam
 from collections import deque
 
 
-class FrozenlakeAgent(QAgent):
+class TaxiAgent(QAgent):
 
     def __init__(self, state_size, action_size):
         QAgent.__init__(self, state_size, action_size)
@@ -24,6 +24,10 @@ class FrozenlakeAgent(QAgent):
     def build_model(self):
         model = Sequential()
         model.add(Dense(16, input_dim=self.state_size, activation='relu'))
+        model.add(Dense(32, activation='relu'))
+        model.add(Dense(64, activation='relu'))
+        model.add(Dense(32, activation='relu'))
+        model.add(Dense(16, activation='relu'))
         model.add(Dense(self.action_size, activation='linear'))
 
         model.compile(loss='mse', optimizer=Adam(lr=self.learning_rate))

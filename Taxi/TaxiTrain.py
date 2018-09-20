@@ -1,30 +1,34 @@
 import gym
-from QAgent import QAgent
+from Taxi.TaxiAgent import TaxiAgent
 import numpy as np
 import os
 
-#os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
 
 def run_tests(n, agent, env):
     score = 0
+
     for i in range(n):
         state = env.reset()
         state = np.array(np.eye(state_size)[state])
         state = np.reshape(state, [1, state_size])
-
+        episode_reward = 0
         while True:
 
             action = agent.act(state, is_training=False)
+            #print(action)
 
             next_state, reward, done, _ = env.step(action)
             next_state = np.array(np.eye(state_size)[next_state])
             next_state = np.reshape(next_state, [1, state_size])
 
             state = next_state
-            score += reward
+            episode_reward += reward
 
             if done:
+                print("Episode reward: " + str(episode_reward))
+                score += episode_reward
                 break
 
     return score/n
@@ -40,7 +44,7 @@ print(action_size)
 print(state_size)
 print(env.reset())
 
-agent = QAgent(state_size, action_size)
+agent = TaxiAgent(state_size, action_size)
 
 
 Episodes = 2000
