@@ -8,6 +8,8 @@ from keras.layers import Dense
 from keras.optimizers import Adam
 from tensorflow.core.framework import summary_pb2
 import datetime
+from keras.models import load_model
+import os
 
 
 class QAgent(AbstractAgent):
@@ -99,3 +101,19 @@ class QAgent(AbstractAgent):
         value = summary_pb2.Summary.Value(tag=tag, simple_value=value)
         summary = summary_pb2.Summary(value=[value])
         self.summary_writer.add_summary(summary, episode)
+
+    def save_model(self):
+        s = input("Do you want to save your model? (y/n)")
+
+        while s != 'y' and s != 'n':
+            s = input("Do you want to save your model? (y/n)")
+
+        if s == 'y':
+
+            if not os.path.exists('modelsy'):
+                os.mkdir('models')
+
+            self.model.save('models/{}.h5'.format(self.get_name()))
+
+    def load_model(self, filepath):
+        self.model = load_model(filepath)

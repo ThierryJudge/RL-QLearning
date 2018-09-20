@@ -78,3 +78,5 @@ for i in range(test_episodes):
 
 print("Average test score: " + str(score / test_episodes))
 agent.write_value_to_tensorboard(score / test_episodes, 'Final Test Score', 0)
+
+agent.save_model()
