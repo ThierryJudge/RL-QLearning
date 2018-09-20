@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1ba38fd4-f713-43a3-a48b-7b45d2108f1a" name="Default" comment="" />
+    <list default="true" id="2db5c156-b913-45f9-9a62-0e27b047b68b" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Taxi/TaxiAgent.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Taxi/TaxiTrain.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/RL_QLearning_V2.iml" afterPath="$PROJECT_DIR$/.idea/RL_QLearning_V2.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Cartpole/CartPoleTrain.py" afterPath="$PROJECT_DIR$/Cartpole/CartPoleTrain.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Cartpole/CartpoleAgent.py" afterPath="$PROJECT_DIR$/Cartpole/CartpoleAgent.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrozenLake/FrozenLakeTrain.py" afterPath="$PROJECT_DIR$/FrozenLake/FrozenLakeTrain.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrozenLake/FrozenlakeAgent.py" afterPath="$PROJECT_DIR$/FrozenLake/FrozenlakeAgent.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QAgent.py" afterPath="$PROJECT_DIR$/QAgent.py" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,19 +21,29 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/RL_QLearning_V2$CartPoleTrain.coverage" NAME="CartPoleTrain Coverage Results" MODIFIED="1537156273834" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/RL_QLearning_V2$FrozenLakeTrain.coverage" NAME="FrozenLakeTrain Coverage Results" MODIFIED="1537235519400" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FrozenLake" />
+    <SUITE FILE_PATH="coverage/RL_QLearning_V2$TaxiAgent.coverage" NAME="TaxiAgent Coverage Results" MODIFIED="1537416027839" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Taxi" />
+    <SUITE FILE_PATH="coverage/RL_QLearning_V2$TaxiTrain.coverage" NAME="TaxiTrain Coverage Results" MODIFIED="1537417405834" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Taxi" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CartPoleTrain.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Cartpole/CartPoleTrain.py">
+      <file leaf-file-name="TaxiTrain.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Taxi/TaxiTrain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="52" column="0" lean-forward="true" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+            <state relative-caret-position="306">
+              <caret line="18" column="28" lean-forward="false" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
               <folding>
-                <element signature="e#0#9#0" expanded="true" />
+                <element signature="e#0#10#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractAgent.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AbstractAgent.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -30,43 +51,18 @@
       <file leaf-file-name="QAgent.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/QAgent.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1190">
-              <caret line="71" column="109" lean-forward="false" selection-start-line="71" selection-start-column="109" selection-end-line="71" selection-end-column="109" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-                <element signature="e#1440#1501#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FrozenlakeAgent.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FrozenLake/FrozenlakeAgent.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="31" lean-forward="true" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vcs.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.idea/vcs.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="268">
+              <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="43" selection-end-column="46" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FrozenLakeTrain.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FrozenLake/FrozenLakeTrain.py">
+      <file leaf-file-name="FrozenlakeAgent.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/FrozenLake/FrozenlakeAgent.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="42" column="31" lean-forward="true" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
+            <state relative-caret-position="425">
+              <caret line="30" column="20" lean-forward="false" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -75,8 +71,18 @@
       <file leaf-file-name="CartpoleAgent.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Cartpole/CartpoleAgent.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="7" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+            <state relative-caret-position="527">
+              <caret line="38" column="20" lean-forward="false" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TaxiAgent.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Taxi/TaxiAgent.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="578">
+              <caret line="34" column="20" lean-forward="false" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -86,31 +92,17 @@
       </file>
     </leaf>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Python Script" />
-      </list>
-    </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>print</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/CartpoleAgent.py" />
-        <option value="$PROJECT_DIR$/CartPoleTrain.py" />
+        <option value="$PROJECT_DIR$/Taxi/TaxiTrain.py" />
+        <option value="$PROJECT_DIR$/Taxi/TaxiAgent.py" />
         <option value="$PROJECT_DIR$/Cartpole/CartpoleAgent.py" />
-        <option value="$PROJECT_DIR$/Cartpole/CartPoleTrain.py" />
-        <option value="$PROJECT_DIR$/FrozenLake/FrozenlakeAgent.py" />
         <option value="$PROJECT_DIR$/QAgent.py" />
-        <option value="$PROJECT_DIR$/FrozenLake/FrozenLakeTrain.py" />
+        <option value="$PROJECT_DIR$/FrozenLake/FrozenlakeAgent.py" />
       </list>
     </option>
   </component>
@@ -120,10 +112,10 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="-6" />
     <option name="width" value="1294" />
-    <option name="height" value="1087" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -141,7 +133,6 @@
       </profile-state>
     </entry>
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -158,7 +149,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -166,10 +156,21 @@
               <item name="RL_QLearning_V2" type="b2602c69:ProjectViewProjectNode" />
               <item name="RL_QLearning_V2" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="RL_QLearning_V2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RL_QLearning_V2" type="462c0819:PsiDirectoryNode" />
+              <item name="FrozenLake" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RL_QLearning_V2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RL_QLearning_V2" type="462c0819:PsiDirectoryNode" />
+              <item name="Taxi" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -177,12 +178,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Arnaud Judge\PycharmProjects\RL_QLearning_V2\Cartpole" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Arnaud Judge\PycharmProjects\RL_QLearning_V2\FrozenLake" />
-      <recent name="C:\Users\Arnaud Judge\PycharmProjects\RL_QLearning_V2" />
+      <recent name="C:\Users\Arnaud Judge\PycharmProjects\RL_QLearning_V2\Taxi" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -197,51 +194,51 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.FrozenLakeTrain">
-    <configuration name="CartPoleTrain" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.TaxiTrain">
+    <configuration name="TaxiAgent" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Taxi" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="RL_QLearning_V2" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\Arnaud Judge\PycharmProjects\RL_QLearning_V2\Cartpole\CartPoleTrain.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Taxi/TaxiAgent.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="FrozenLakeTrain" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="TaxiTrain" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/FrozenLake" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Taxi" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="RL_QLearning_V2" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/FrozenLake/FrozenLakeTrain.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Taxi/TaxiTrain.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
     <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="Python.CartPoleTrain" />
-      <item index="1" class="java.lang.String" itemvalue="Python.FrozenLakeTrain" />
+      <item index="0" class="java.lang.String" itemvalue="Python.TaxiTrain" />
+      <item index="1" class="java.lang.String" itemvalue="Python.TaxiAgent" />
     </list>
     <recent_temporary>
       <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.FrozenLakeTrain" />
-        <item index="1" class="java.lang.String" itemvalue="Python.CartPoleTrain" />
+        <item index="0" class="java.lang.String" itemvalue="Python.TaxiTrain" />
+        <item index="1" class="java.lang.String" itemvalue="Python.TaxiAgent" />
       </list>
     </recent_temporary>
   </component>
@@ -250,28 +247,29 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1ba38fd4-f713-43a3-a48b-7b45d2108f1a" name="Default" comment="" />
-      <created>1537146431984</created>
+      <changelist id="2db5c156-b913-45f9-9a62-0e27b047b68b" name="Default" comment="" />
+      <created>1537415876348</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1537146431984</updated>
+      <updated>1537415876348</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
+    <frame x="-6" y="0" width="1294" height="1047" extended-state="1" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10850556" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959481" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3261105" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -293,75 +291,54 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/keras/engine/training.py">
+    <entry file="file://$PROJECT_DIR$/AbstractAgent.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="949" column="0" lean-forward="false" selection-start-line="949" selection-start-column="0" selection-end-line="949" selection-end-column="0" />
+        <state relative-caret-position="68">
+          <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Cartpole/CartPoleTrain.py">
+    <entry file="file://$PROJECT_DIR$/Taxi/TaxiTrain.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="52" column="0" lean-forward="true" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+        <state relative-caret-position="306">
+          <caret line="18" column="28" lean-forward="false" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Taxi/TaxiAgent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="20" lean-forward="false" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Cartpole/CartpoleAgent.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/tensorflow/python/client/session.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="711" column="0" lean-forward="false" selection-start-line="711" selection-start-column="0" selection-end-line="711" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrozenLake/FrozenLakeTrain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="42" column="31" lean-forward="true" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
+        <state relative-caret-position="527">
+          <caret line="38" column="20" lean-forward="false" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/QAgent.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
-          <caret line="71" column="109" lean-forward="false" selection-start-line="71" selection-start-column="109" selection-end-line="71" selection-end-column="109" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-            <element signature="e#1440#1501#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="268">
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="43" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FrozenLake/FrozenlakeAgent.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="31" lean-forward="true" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/vcs.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="425">
+          <caret line="30" column="20" lean-forward="false" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
           <folding />
         </state>
       </provider>

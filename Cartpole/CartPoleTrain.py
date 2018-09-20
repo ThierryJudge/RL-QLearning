@@ -5,21 +5,22 @@ import numpy as np
 
 from Cartpole.CartpoleAgent import CartpoleAgent
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+#os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
 
 env = gym.make('CartPole-v0')
 
 action_size = env.action_space.n
-state_size = 4
+state_size = env.observation_space.n
 
 
 agent = CartpoleAgent(state_size, action_size)
 
 
 print("Training...")
-train_episodes = 3000
+train_episodes = 10000
 avg_score = 0
+loss = 0
 for episode in range(train_episodes):
 
     state = env.reset()
@@ -40,12 +41,13 @@ for episode in range(train_episodes):
             avg_score += i
             break
 
-    agent.update()
+    loss += agent.update()[0]
 
     if episode % 100 == 0 and episode != 0:
-        print("Episode: " + str(episode) + ", score: " + str(avg_score/100))
-        print(agent.epsilon)
+        print("Episode: " + str(episode) + "/" + str(train_episodes) + ", score: " + str(avg_score/100) + ", Loss : " + str(loss/100))
+        print("Epsilon: " + str(agent.epsilon))
         avg_score = 0
+        loss = 0
 
 
 
