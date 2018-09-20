@@ -11,14 +11,14 @@ from Cartpole.CartpoleAgent import CartpoleAgent
 env = gym.make('CartPole-v0')
 
 action_size = env.action_space.n
-state_size = env.observation_space.n
+state_size = 4
 
 
 agent = CartpoleAgent(state_size, action_size)
 
 
 print("Training...")
-train_episodes = 10000
+train_episodes = 3000
 avg_score = 0
 loss = 0
 for episode in range(train_episodes):
@@ -41,14 +41,16 @@ for episode in range(train_episodes):
             avg_score += i
             break
 
-    loss += agent.update()[0]
+    current_loss = agent.update()[0]
+    loss += current_loss
+
+    agent.write_loss_to_tensorboard(current_loss, episode)
+    agent.write_score_to_tensorboard(i, episode)
 
     if episode % 100 == 0 and episode != 0:
         print("Episode: " + str(episode) + "/" + str(train_episodes) + ", score: " + str(avg_score/100) + ", Loss : " + str(loss/100))
-        print("Epsilon: " + str(agent.epsilon))
         avg_score = 0
         loss = 0
-
 
 
 print("Testing...")
@@ -75,3 +77,4 @@ for i in range(test_episodes):
 
 
 print("Average test score: " + str(score / test_episodes))
+agent.write_value_to_tensorboard(score / test_episodes, 'Final Test Score', 0)

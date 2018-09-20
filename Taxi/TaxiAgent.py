@@ -4,6 +4,7 @@ from keras.layers import Dense
 from keras.optimizers import Adam
 
 from collections import deque
+import datetime
 
 
 class TaxiAgent(QAgent):
@@ -33,3 +34,7 @@ class TaxiAgent(QAgent):
         model.compile(loss='mse', optimizer=Adam(lr=self.learning_rate))
 
         return model
+
+    def get_name(self):
+        now = datetime.datetime.now()
+        return "Taxi_{}".format(now.strftime("%Y-%m-%d-%H:%M"))

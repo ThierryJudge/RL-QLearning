@@ -3,14 +3,12 @@ import tensorflow as tf
 import random
 import numpy as np
 from collections import deque
-from matplotlib import pyplot as plt
-from tensorflow.core.framework import summary_pb2
-import shutil
-import os
-import keras
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.optimizers import Adam
+from tensorflow.core.framework import summary_pb2
+import datetime
+
 
 class QAgent(AbstractAgent):
 
@@ -31,6 +29,11 @@ class QAgent(AbstractAgent):
         self.memory = deque(maxlen=self.memory_length)
 
         self.model = self.build_model()
+
+        self.name = self.get_name()
+
+        self.logs_path = 'logs/{}/'.format(self.name)
+        self.summary_writer = tf.summary.FileWriter(self.logs_path, graph=tf.get_default_graph())
 
     def build_model(self):
         model = Sequential()
@@ -80,3 +83,19 @@ class QAgent(AbstractAgent):
             self.epsilon *= self.epsilon_decay
 
         return loss
+
+    def get_name(self):
+        now = datetime.datetime.now()
+        return "QAgent_{}".format(now.strftime("%Y-%m-%d-%H:%M"))
+
+    def write_loss_to_tensorboard(self, loss, episode):
+        self.write_value_to_tensorboard(loss, 'Loss', episode)
+        self.write_value_to_tensorboard(self.epsilon, 'Epsilon', episode)
+
+    def write_score_to_tensorboard(self, score, episode):
+        self.write_value_to_tensorboard(score, 'Score', episode)
+
+    def write_value_to_tensorboard(self, value, tag:str, episode:int):
+        value = summary_pb2.Summary.Value(tag=tag, simple_value=value)
+        summary = summary_pb2.Summary(value=[value])
+        self.summary_writer.add_summary(summary, episode)

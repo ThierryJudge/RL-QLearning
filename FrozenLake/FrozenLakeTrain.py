@@ -1,5 +1,5 @@
 import gym
-from FrozenLake.FrozenlakeAgent import FrozenlakeAgent
+from FrozenLake.FrozenLakeAgent import FrozenLakeAgent
 import numpy as np
 import os
 
@@ -35,13 +35,13 @@ env = gym.make('FrozenLake-v0')
 action_size = env.action_space.n
 state_size = env.observation_space.n
 
-agent = FrozenlakeAgent(state_size, action_size)
+agent = FrozenLakeAgent(state_size, action_size)
 
 
-Episodes = 2000
+train_episodes = 5000
 loss = 0
 
-for episode in range(Episodes):
+for episode in range(train_episodes):
 
     state = env.reset()
     state = np.array(np.eye(16)[state])
@@ -62,16 +62,21 @@ for episode in range(Episodes):
         if done:
             break
 
-    loss += agent.update()[0]
+    current_loss = agent.update()[0]
+    loss += current_loss
 
+    agent.write_loss_to_tensorboard(current_loss, episode)
     if episode % 100 == 0 and episode != 0:
         score = run_tests(100, agent, env)
-        print("Episode: " + str(episode) + "/" + str(Episodes) + "-> Test score = " + str(score) + ", Loss : " + str(loss/100))
+        print("Episode: " + str(episode) + "/" + str(train_episodes) + "-> Test score = " + str(score) + ", Loss : " + str(loss / 100))
         loss = 0
+        agent.write_score_to_tensorboard(score, episode)
 
 
 score = run_tests(1000, agent, env)
 print("Finale test score = " + str(score))
+agent.write_value_to_tensorboard(score, 'Final Test Score', 0)
+
 
 
 
