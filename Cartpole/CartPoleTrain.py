@@ -5,7 +5,7 @@ import numpy as np
 
 from Cartpole.CartpoleAgent import CartpoleAgent
 
-#os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
 
 env = gym.make('CartPole-v0')
@@ -18,7 +18,7 @@ agent = CartpoleAgent(state_size, action_size)
 
 
 print("Training...")
-train_episodes = 3000
+train_episodes = 20000
 avg_score = 0
 loss = 0
 for episode in range(train_episodes):
