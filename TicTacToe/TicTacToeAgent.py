@@ -53,6 +53,22 @@ class TicTacToeAgent(QAgent):
 
         return model
 
+    def act(self, state, is_training = True):
+
+        action = np.argmax(self.model.predict(state))
+
+        available_positions = []
+        for index, item in enumerate(state):
+            if item == 0:
+                available_positions.append(index)
+
+        random_action = random.choice(available_positions)
+
+        if np.random.rand(1) < self.epsilon and is_training:
+            action = random_action
+
+        return action
+
     def get_name(self):
         now = datetime.datetime.now()
         return "TicTacToe_{}".format(now.strftime("%Y-%m-%d-%H-%M"))
@@ -63,19 +79,8 @@ class TicTacToeAgent(QAgent):
 
     def remember(self, state, action, reward, next_state, done):
         self.memory.append((state, action, reward, next_state, done))
-        # print("remember")
-        # print((state, action, reward, next_state, done))
-        # if not (0 in state) and not done:
-        #     print("ERROR remember")
-        #     print(state)
-        #     print(done)
 
     def print_memory(self):
-        # for state, action, reward, next_state, done in self.memory:
-        #     if not (0 in state) and not done:
-        #         print("ERROR print")
-        #         print(state)
-        #         print(done)
         print("Memory")
         for i in self.memory:
             print(i)
@@ -91,15 +96,6 @@ class TicTacToeAgent(QAgent):
 
         for state, action, reward, next_state, done in batch:
 
-            if not (0 in state) and not done:
-                print("ERROR Update")
-                # print(state)
-                # print(done)
-                # print(next_state)
-
-            if not (0 in next_state) and not done:
-                print("ERROR Update: next_state")
-
             if done:
                 target_reward = reward
             else:
@@ -109,25 +105,17 @@ class TicTacToeAgent(QAgent):
 
             target_q = self.model.predict(self.prepocess_state(state))
 
-            # print("--------------------------------")
-            # print(done)
-            # print(state)
-            # print(target_q)
-
             for index, item in enumerate(state.reshape(9)):
                 if item != 0:
                     target_q[0, index] = Environment.REWARD_ILLEGAL
 
             target_q[0, action] = target_reward
 
-            # print(target_q)
 
             #states.append(self.prepocess_state(state))
             states.append(state.squeeze())
             target_qs.append(target_q.squeeze())
 
-        # print(np.array(states).shape)
-        # print(np.array(states).shape)
         history = self.model.fit(np.array(states), np.array(target_qs), batch_size=self.batch_size, verbose=0)
         loss = history.history['loss']
 

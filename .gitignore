@@ -1,0 +1,4 @@
+.idea/misc.xml .idea/modules.xml .idea/RL_QLearning_V2.iml .idea/vcs.xml .idea/workspace.xml
+Cartpole/__pycache__/CartpoleAgent.cpython-35.pyc
+TicTacToe/__pycache__/*
+__pycache__/AbstractAgent.cpython-35.pyc __pycache__/QAgent.cpython-35.pyc __pycache__/RandomAgent.cpython-35.pyc

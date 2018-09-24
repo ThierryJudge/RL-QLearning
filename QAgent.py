@@ -44,7 +44,7 @@ class QAgent(AbstractAgent):
 
         return model
 
-    def act(self, state, is_training = True):
+    def act(self, state, is_training = False):
         # if not is_training:
         #     print(self.model.predict(state))
         action = np.argmax(self.model.predict(state))
@@ -57,6 +57,11 @@ class QAgent(AbstractAgent):
 
     def remember(self, state, action, reward, next_state, done):
         self.memory.append((state, action, reward, next_state, done))
+        # print("Memory")
+        # for i in self.memory:
+        #     print(i)
+        # print("Remember")
+        # print((state, action, reward, next_state, done))
 
     def update(self):
         batch = random.sample(self.memory, self.batch_size if len(self.memory) > self.batch_size else len(self.memory))
@@ -110,7 +115,7 @@ class QAgent(AbstractAgent):
 
         if s == 'y':
 
-            if not os.path.exists('modelsy'):
+            if not os.path.exists('models'):
                 os.mkdir('models')
 
             self.model.save('models/{}.h5'.format(self.get_name()))

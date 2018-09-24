@@ -1,5 +1,5 @@
 from TicTacToe.Environment import Environment
-
+import random
 
 NUMBER_OF_TESTS = 1000
 env = Environment()
@@ -17,11 +17,16 @@ for _ in range(NUMBER_OF_TESTS):
 
     while not done:
 
-        action = env.get_sample_action()
+        action = env.get_sample_action(force_legal=True)
+
+        if (state[action] != 0):
+            print("errors")
+
         state, reward, done = env.step(action)
 
-        if (not (0 in state) and not done):
-            print("ERROR")
+
+        if(reward == env.REWARD_ILLEGAL):
+            print("error")
 
     if reward == env.REWARD_WIN:
         wins += 1

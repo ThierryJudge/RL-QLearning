@@ -11,7 +11,7 @@ class Environment:
     REWARD_LOSS = -1
     REWARD_DRAW = 0.5
     REWARD_DEFAULT = 0
-    REWARD_ILLEGAL = -10
+    REWARD_ILLEGAL = -1.1
 
     X = X
     O = O
@@ -30,14 +30,15 @@ class Environment:
 
         return self.board
 
-    def draw_board(self):
-        draw(self.board)
+    def draw_board(self, numbers=False):
+        draw(self.board, numbers=numbers)
 
     def check_win(self):
         return check_win(self.board)
 
     def get_sample_action(self, force_legal=False):
         if force_legal:
+
             available_positions = []
             for index, item in enumerate(self.board):
                 if item == 0:
@@ -48,9 +49,9 @@ class Environment:
             return random.randint(0, 8)
 
     # return observation, reward, done
-    def step(self, action, train=False):
+    def step(self, action, done_on_ill=False):
         if self.board[action] != 0:
-            return self.board, self.REWARD_ILLEGAL, train
+            return self.board, self.REWARD_ILLEGAL, done_on_ill
         else:
             self.board[action] = self.X
             w = self.check_win()
@@ -74,6 +75,24 @@ class Environment:
                     return self.board, self.REWARD_WIN, True
                 else:
                     return self.board, self.REWARD_DEFAULT, False
+
+    # return observation, winner, done
+    # turn : X or O
+    def step_player(self, action, turn):
+        if self.board[action] != 0:
+            return self.board, self.REWARD_ILLEGAL, False
+        else:
+            self.board[action] = turn
+            w = self.check_win()
+
+            if w == self.X:
+                return self.board, self.X, True
+            elif w == self.O:
+                return self.board, self.O, True
+            elif w == self.DRAW:
+                return self.board, self.DRAW, True
+            else:
+                return self.board, self.REWARD_DEFAULT, False
 
 
 def get_new_board():
