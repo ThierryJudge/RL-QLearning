@@ -55,7 +55,7 @@ class QAgent(AbstractAgent):
 
         return action
 
-    def remember(self,state, action, reward, next_state, done):
+    def remember(self, state, action, reward, next_state, done):
         self.memory.append((state, action, reward, next_state, done))
 
     def update(self):
@@ -88,7 +88,7 @@ class QAgent(AbstractAgent):
 
     def get_name(self):
         now = datetime.datetime.now()
-        return "QAgent_{}".format(now.strftime("%Y-%m-%d-%H:%M"))
+        return "QAgent_{}".format(now.strftime("%Y-%m-%d-%H-%M"))
 
     def write_loss_to_tensorboard(self, loss, episode):
         self.write_value_to_tensorboard(loss, 'Loss', episode)

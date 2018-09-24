@@ -72,17 +72,23 @@ for episode in range(Episodes):
         if done:
             break
 
-    loss += agent.update()[0]
+    current_loss = agent.update()[0]
+    loss += current_loss
+    agent.write_loss_to_tensorboard(current_loss, episode)
+
 
     if episode % 100 == 0 and episode != 0:
         score = run_tests(100, agent, env)
         print("Episode: " + str(episode) + "/" + str(Episodes) + "-> Test score = " + str(score) + ", Loss : " + str(loss/100))
         print("Last episode reward: " + str(episode_reward))
+        agent.write_score_to_tensorboard(score, episode)
         loss = 0
 
 
 score = run_tests(1000, agent, env)
 print("Finale test score = " + str(score))
+agent.write_value_to_tensorboard(score, 'Final Test Score', 0)
+
 
 
 

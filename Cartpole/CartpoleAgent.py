@@ -26,8 +26,10 @@ class CartpoleAgent(QAgent):
 
     def build_model(self):
         model = Sequential()
-        model.add(Dense(48, input_dim=self.state_size, activation='relu'))
-        model.add(Dense(48, activation='relu'))
+        model.add(Dense(32, input_dim=self.state_size, activation='relu'))
+        model.add(Dense(64, activation='relu'))
+        model.add(Dense(64, activation='relu'))
+        model.add(Dense(32, activation='relu'))
         model.add(Dense(self.action_size, activation='linear'))
 
         model.compile(loss='mse', optimizer=Adam(lr=self.learning_rate))
@@ -36,4 +38,4 @@ class CartpoleAgent(QAgent):
 
     def get_name(self):
         now = datetime.datetime.now()
-        return "Cartpole_{}".format(now.strftime("%Y-%m-%d-%H:%M"))
+        return "Cartpole_{}".format(now.strftime("%Y-%m-%d-%H-%M"))
