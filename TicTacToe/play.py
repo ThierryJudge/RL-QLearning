@@ -10,7 +10,7 @@ state_size = 9
 
 # agent = RandomAgent(action_size=9)
 agent = TicTacToeAgent(state_size=state_size, action_size=action_size)
-agent.load_model(filepath='/home/local/USHERBROOKE/judt3001/Bureau/Test/RL_QLearning_V2/TicTacToe/models/TicTacToe_2018-09-24-17-06.h5')
+agent.load_model(filepath='./models/TicTacToe_2018-09-24-17-06.h5')
 
 player = env.O
 turn = get_first_turn()

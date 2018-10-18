@@ -2,9 +2,12 @@ from TicTacToe.Environment import Environment
 from TicTacToe.TicTacToeAgent import TicTacToeAgent
 from QAgent import QAgent
 import numpy as np
+from RandomAgent import RandomAgent
+from TicTacToe.SemiRandomAgent import SemiRandomAgent
 from TicTacToe.Environment import draw
 
-def run_test_games(env, agent, nb_games):
+
+def run_test_games(env, agent, nb_games, opponent=None):
     wins = 0
     losses = 0
     draws = 0
@@ -20,7 +23,10 @@ def run_test_games(env, agent, nb_games):
             action = agent.act(state, is_training=False)
             moves += 1
 
-            next_state, reward, done = env.step(action, done_on_ill=True)
+            if opponent is not None:
+                next_state, reward, done = env.step_opponent(action, opponent, done_on_ill=True)
+            else:
+                next_state, reward, done = env.step(action, done_on_ill=True)
 
             next_state = np.reshape(next_state, [1, state_size])
 
@@ -40,13 +46,14 @@ def run_test_games(env, agent, nb_games):
 
     return wins, losses, draws, illegals
 
+
 env = Environment()
 action_size = 9
 state_size = 9
 
 agent = TicTacToeAgent(state_size, action_size)
 
-train_episodes = 1000
+train_episodes = 10000
 loss = 0
 
 wins = 0
@@ -54,6 +61,8 @@ losses = 0
 draws = 0
 illegals = 0
 moves = 0
+
+opponent = RandomAgent(action_size)
 
 for episode in range(train_episodes):
 
@@ -64,7 +73,7 @@ for episode in range(train_episodes):
         action = agent.act(state)
         moves += 1
 
-        next_state, reward, done = env.step(action)
+        next_state, reward, done = env.step_opponent(action, opponent)
 
         next_state = np.reshape(next_state, [1, state_size])
 
@@ -94,7 +103,7 @@ for episode in range(train_episodes):
         print("X: " + str(wins) + ", O: " + str(losses) + ", Draw: " + str(draws))
         print("Illegal: " + str(illegals))
         print("Moves: " + str(moves))
-        test_wins, test_losses, test_draws, test_illegals = run_test_games(env=env, agent=agent, nb_games=100)
+        test_wins, test_losses, test_draws, test_illegals = run_test_games(env=env, agent=agent, nb_games=100, opponent=opponent)
         print("Test-> X: " + str(test_wins) + ", O: " + str(test_losses) + ", Draw: " + str(test_draws))
         agent.write_score_to_tensorboard(wins, episode)
 
@@ -104,5 +113,8 @@ for episode in range(train_episodes):
         illegals = 0
         moves = 0
         loss = 0
+
+    if episode == 1000:
+        opponent = SemiRandomAgent(action_size)
 
 agent.save_model()

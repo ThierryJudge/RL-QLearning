@@ -87,7 +87,7 @@ class TicTacToeAgent(QAgent):
 
     def prepocess_state(self, state):
         #return np.reshape(state, (1, 3, 3, 1))
-        return state
+        return state.reshape(1, 9)
 
     def update(self):
         batch = random.sample(self.memory, self.batch_size if len(self.memory) > self.batch_size else len(self.memory))

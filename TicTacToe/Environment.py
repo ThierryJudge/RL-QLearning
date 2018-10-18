@@ -76,6 +76,36 @@ class Environment:
                 else:
                     return self.board, self.REWARD_DEFAULT, False
 
+    # return observation, reward, done
+    def step_opponent(self, action, opponent, done_on_ill=False):
+        if self.board[action] != 0:
+            return self.board, self.REWARD_ILLEGAL, done_on_ill
+        else:
+            self.board[action] = self.X
+            w = self.check_win()
+
+            if w == self.X:
+                return self.board, self.REWARD_WIN, True
+            elif w == self.O:
+                return self.board, self.REWARD_LOSS, True
+            elif w == self.DRAW:
+                return self.board, self.REWARD_DRAW, True
+            else:
+                o_action = opponent.act(self.board * -1)  # Opponent plays as X also
+                if self.board[o_action] != 0:
+                    o_action = self.get_sample_action(True)
+                self.board[o_action] = self.O
+                w = self.check_win()
+
+                if w == self.O:
+                    return self.board, self.REWARD_LOSS, True
+                elif w == self.DRAW:
+                    return self.board, self.REWARD_DRAW, True
+                elif w == self.X:
+                    return self.board, self.REWARD_WIN, True
+                else:
+                    return self.board, self.REWARD_DEFAULT, False
+
     # return observation, winner, done
     # turn : X or O
     def step_player(self, action, turn):
