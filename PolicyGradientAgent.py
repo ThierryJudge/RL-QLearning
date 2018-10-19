@@ -21,10 +21,9 @@ class PolicyGradientAgent:
         self.state_size = state_size
         self.action_size = action_size
 
-        self.gamma = 1.0
-        self.learning_rate = 0.01
+        self.gamma = 0.99
+        self.learning_rate = 0.03
         self.learning_rate_decay = 0.01
-        self.batch_size = 128
 
         self.model = self._build_model()
         self.train_fn = self._get_train_fn()
@@ -36,6 +35,7 @@ class PolicyGradientAgent:
     def _build_model(self):
         model = Sequential()
         model.add(Dense(64, input_dim=self.state_size, activation='relu'))
+        model.add(Dense(64, input_dim=64, activation='relu'))
         model.add(Dense(self.action_size, input_dim=64, activation='softmax'))
         return model
 
