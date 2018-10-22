@@ -1,22 +1,11 @@
-from AbstractAgent import AbstractAgent
-import tensorflow as tf
-import random
 import numpy as np
-from collections import deque
-from keras.models import Sequential
-from keras.layers import Dense
-from keras.optimizers import Adam
 from keras import backend as K, optimizers
-from tensorflow.core.framework import summary_pb2
-import datetime
-from keras.models import load_model
-import os
 from keras import utils as np_utils
-
+from keras.layers import Dense
+from keras.models import Sequential
 
 
 class PolicyGradientAgent:
-
     def __init__(self, state_size, action_size):
         self.state_size = state_size
         self.action_size = action_size
@@ -31,6 +20,9 @@ class PolicyGradientAgent:
         self.states = []
         self.actions = []
         self.rewards = []
+        self.game_states = []
+        self.game_actions = []
+        self.game_rewards = []
 
     def _build_model(self):
         model = Sequential()
@@ -41,13 +33,14 @@ class PolicyGradientAgent:
 
     def _get_train_fn(self):
 
-        action_prob_placeholder = self.model.output # (N, A) get log probabilities from model (logits)
-        action_onehot_placeholder = K.placeholder(shape=[None, self.action_size], name='onehot') # (N, A) get taken actions
-        discount_reward_placeholder = K.placeholder(shape=[None], name='rewards') # (N, )
+        action_prob_placeholder = self.model.output  # (N, A) get log probabilities from model (logits)
+        action_onehot_placeholder = K.placeholder(shape=[None, self.action_size],
+                                                  name='onehot')  # (N, A) get taken actions
+        discount_reward_placeholder = K.placeholder(shape=[None], name='rewards')  # (N, )
 
-        action_prob = K.sum((action_prob_placeholder * action_onehot_placeholder), axis=1) # (N, )
+        action_prob = K.sum((action_prob_placeholder * action_onehot_placeholder), axis=1)  # (N, )
 
-        log_probs = K.log(action_prob) # (N, )
+        log_probs = K.log(action_prob)  # (N, )
 
         loss = K.mean(-log_probs * discount_reward_placeholder)
 
@@ -56,10 +49,10 @@ class PolicyGradientAgent:
         updates = optimizer.get_updates(params=self.model.trainable_weights, loss=loss)
 
         return K.function(inputs=[self.model.input,
-                                           action_onehot_placeholder,
-                                           discount_reward_placeholder],
-                                   outputs=[loss],
-                                   updates=updates)
+                                  action_onehot_placeholder,
+                                  discount_reward_placeholder],
+                          outputs=[loss],
+                          updates=updates)
 
     def update(self):
         states = np.squeeze(np.array(self.states))
@@ -84,13 +77,38 @@ class PolicyGradientAgent:
         self.actions.append(action)
         self.rewards.append(reward)
 
+    def remember_multiple(self, state, action, reward, done):
+        self.game_states.append(state)
+        self.game_actions.append(action)
+        self.game_rewards.append(reward)
+
+        if done:
+            rewards = self.discount_rewards(np.array(self.game_rewards)).tolist()
+            self.states.append(self.game_states)
+            self.actions.append(self.game_actions)
+            self.rewards.append(rewards)
+
+            self.game_states = []
+            self.game_actions = []
+            self.game_rewards = []
+
+    def update_multiple(self):
+        states = np.squeeze(np.array(self.states))
+        actions = np_utils.to_categorical(self.actions, num_classes=self.action_size)
+        rewards = np.array(self.rewards)
+
+        loss = self.train_fn([states, actions, rewards])
+        self.states = []
+        self.actions = []
+        self.rewards = []
+        return loss
+
     def discount_rewards(self, rewards):
         d = np.zeros_like(rewards)
-        baseline = np.mean(rewards)
+        # baseline = np.mean(rewards)
         sum = 0
         for i in reversed(range(len(rewards))):
             sum = sum * self.gamma + rewards[i]
-            d[i] = sum - baseline
+            d[i] = sum  # - baseline
 
         return d
-

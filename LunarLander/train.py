@@ -12,10 +12,7 @@ env = gym.make('LunarLander-v2')
 action_size = env.action_space.n
 state_size = 8
 
-
-
 agent = PolicyGradientAgent(state_size, action_size)
-
 
 print("Training...")
 train_episodes = 5000
@@ -62,7 +59,7 @@ for i in range(test_episodes):
     time = 0
     while True:
 
-        action = agent.act(state)
+        action = agent.act(state, is_training=True)
 
         next_state, reward, done, _ = env.step(action)
         next_state = np.reshape(next_state, [1, state_size])
